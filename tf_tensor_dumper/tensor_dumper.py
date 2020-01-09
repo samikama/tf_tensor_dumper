@@ -57,7 +57,7 @@ _TFDumpers={None:_DumperRunHook()}
 def add_dumper(name,filename="tensors",global_step=None):
   if name is None:
     raise KeyError("name must be non-none")
-  for k,v in _TFDumpers:
+  for k,v in _TFDumpers.items():
     if v._filename == filename:
       raise KeyError("File name %s is already used in %s"%(filename,k if k is not None else "Default"))
   if name not in _TFDumpers.items():
